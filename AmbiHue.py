@@ -11,9 +11,6 @@ ambilight_tv_ip = "192.168.1.103"
 #ip adress HUE bridge
 hue_ip = "192.168.1.198"
 
-#HUE bidge API key
-hue_api_key = "***REMOVED***"
-
 #grid to attach lights to one of 9 zones of the tv
 #the HUE light nr's can be found in the official HUE app
 #              top
