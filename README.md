@@ -4,9 +4,10 @@ Python script to intgrate Philips Hue lights with Philips Ambilight TVs for a ro
 ## Installation
 Install simplejson:
 ```
-emerge -av simplejson # for Gentoo and all installed python-versions (make sure you have python2_7-target set) or
-pacman -S python2-simplejson # for Arch or
-yum install python-simplejson # for Fedora (python2 only)
+emerge -av simplejson          # for Gentoo (python2_7-target must be set)
+pacman -S python2-simplejson   # for Arch or
+yum install python-simplejson  # for Fedora (python2 only)
+```
 
 Make sure you have pip installed and use it to get the latest version of phue:
 ```
@@ -17,7 +18,7 @@ pip2 install phue # all distributions
 To never manually restart the script you can integrate it with systemd. systemd detects when the script exits because it lost connection to the TV or bridge and restarts it after a configured time period.
 ```
 cp systemd/user/ambihue.service ~/.config/systemd/user/
-# adjust path and restart-time in the service-file
+    # adjust path and restart-time in the service-file
 systemctl --user enable ambihue
 systemctl --user start ambihue
 ```
