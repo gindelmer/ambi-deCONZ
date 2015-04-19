@@ -1,32 +1,36 @@
 # Readme: ambihue
-
-Python script to intgrate Philips Hue lights with Philips Ambilight TV's for a room wide Ambilight effect.
+Python script to intgrate Philips Hue lights with Philips Ambilight TVs for a room wide Ambilight effect.
 
 ## Installation
-
+Install simplejson:
 ```
-emerge -av simplejson # for python 2.x
-pip2 install phue
+emerge -av simplejson # for Gentoo and all installed python-versions (make sure you have python2_7-target set) or
+pacman -S python2-simplejson # for Arch or
+yum install python-simplejson # for Fedora (python2 only)
+
+Make sure you have pip installed and use it to get the latest version of phue:
+```
+pip2 install phue # all distributions
 ```
 
 ### systemd integration
-
+To never manually restart the script you can integrate it with systemd. systemd detects when the script exits because it lost connection to the TV or bridge and restarts it after a configured time period.
 ```
 cp systemd/user/ambihue.service ~/.config/systemd/user/
-# adjust path and restart time in the service-file
+# adjust path and restart-time in the service-file
 systemctl --user enable ambihue
 systemctl --user start ambihue
 ```
 
-## Configuration
+Note, that you need to press the bridge-button before the first start of ambihue, regardless wether you want to integrate it with systemd.
 
+## Configuration
+Configuration can be done in the first lines of the ambihue-script itself:
 - Configure IP adress of Ambilight TV
 - Configure IP adress of HUE bridge
-- Attach HUE lights to zones of the Ambilight TV
-- The HUE light nr's can be found in the official HUE app
+- assign HUE light numbers to zones of the Ambilight TV
 
-## Running (without systemd)
-
+## Running for the first time (or without systemd)
 - Press the connect button of the Hue bridge (only the first time you run this script)
 run 
 ```
