@@ -4,9 +4,10 @@ Description=AmbiHue
 [Service]
 Type=simple
 ExecStart=/usr/bin/python2 /home/poinck/gits/ambihue/ambihue.py
+	# adjust the path to the ambihue script location
 Restart=always
 # RestartSec=120min
-RestartSec=40s
+RestartSec=80s
 
 [Install]
 WantedBy=multi-user.target
