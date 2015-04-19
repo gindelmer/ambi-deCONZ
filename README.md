@@ -1,6 +1,6 @@
 # Readme: ambihue
 
-Python script to intgratePhilips Hue lights with Philips Ambilight TV's for a room wide Ambilight effect.
+Python script to intgrate Philips Hue lights with Philips Ambilight TV's for a room wide Ambilight effect.
 
 ## Installation
 
@@ -20,15 +20,16 @@ systemctl --user start ambihue
 
 ## Configuration
 
-Configure IP adress of Ambilight TV
-Configure IP adress of HUE bridge
+- Configure IP adress of Ambilight TV
+- Configure IP adress of HUE bridge
+- Attach HUE lights to zones of the Ambilight TV
+- The HUE light nr's can be found in the official HUE app
 
-Attach HUE lights to zones of the Ambilight TV
-The HUE light nr's can be found in the official HUE app
+## Running (without systemd)
 
-## Running
+- Press the connect button of the Hue bridge (only the first time you run this script)
+run 
+```
+python2 ambihue.py
+```
 
-Press the connect button of the Hue bridge (only the first time you run this script)
-run ./AmbiHue.py
-
-Enjoy your Ambilight room
