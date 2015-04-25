@@ -112,6 +112,6 @@ while True:
       color = ambilight_data[side][zone]
 
       hue, sat, bri = rgb_to_hsb(color["r"], color["g"], color["b"])
-      send_hsb_to_light(bridge, light, hue, sat, bri)
+      send_hsb_to_light(bridge, light, hue, sat, 1)
 
    sleep(delay)
