@@ -9,7 +9,7 @@ import colorsys
 ambilight_tv_ip = "192.168.2.7"
 
 #ip adress HUE bridge
-hue_ip = "192.168.2.172"
+hue_ip = "192.168.2.17"
 
 #grid to attach lights to one of 9 zones of the tv
 #the HUE light nr's can be found in the official HUE app
@@ -25,9 +25,9 @@ hue_ip = "192.168.2.172"
 #         2     1     0
 #             bottom
 
-left   = [0, 3, 0]  #left  [0, 1, 2]
+left   = [0, 2, 2]  #left  [0, 1, 2]
 top    = [0, 0, 0]  #top   [0, 1, 2]
-right  = [0, 1, 0]  #right [0, 1, 2]
+right  = [3, 3, 5]  #right [0, 1, 2]
 bottom = [0, 0, 0]  #bottom[0, 1, 2]
 
 #================================================================
@@ -112,6 +112,9 @@ while True:
       color = ambilight_data[side][zone]
 
       hue, sat, bri = rgb_to_hsb(color["r"], color["g"], color["b"])
-      send_hsb_to_light(bridge, light, hue, sat, 1)
+      if light == 5:
+         send_hsb_to_light(bridge, light, hue, sat, 25)
+      else:
+         send_hsb_to_light(bridge, light, hue, sat, 1)
 
    sleep(delay)
