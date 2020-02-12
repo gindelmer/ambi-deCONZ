@@ -1,0 +1,13 @@
+[Unit]
+Description=Ambi-deCONZ Service
+
+[Service]
+Type=simple
+# adjust the path to the ambi-deCONZ script location
+ExecStart=/usr/bin/python3 /opt/ambi-deCONZ/ambi-deCONZ.py
+StandardOutput=null
+Restart=on-failure
+RestartSec=30s
+
+[Install]
+WantedBy=multi-user.target

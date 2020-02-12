@@ -1,8 +1,9 @@
-#! /usr/bin/python
+#! /usr/bin/python3 -p
 import simplejson as json
-import urllib2 as url
+from urllib.request import urlopen
 from time import sleep
 from phue import Bridge
+from pydeconz.light import DeconzLight
 import colorsys
 
 #ip adress op ambilight TV
@@ -55,7 +56,7 @@ def send_hsb_to_light(bridge, light, h, s, b):
 #   print("diff hue: " + str(diff_h))
    if diff_h > (color_offset * 65535) or diff_s > (color_offset * 255): # or diff_b > (color_offset * 255):
       command = {"transitiontime" : trans_time, "on" : True, "hue": h, "sat": s, "bri" : b}
-      print("Sending Hue:" + str(h) + ", Sat:" + str(s) + " and Bri: " + str(b) + " to light " + str(light))
+      #print("Sending Hue:" + str(h) + ", Sat:" + str(s) + " and Bri: " + str(b) + " to light " + str(light))
       bridge.set_light(light, command)
 
    current_hsb[0] = h
@@ -96,10 +97,10 @@ bridge = Bridge(hue_ip)
 bridge.connect()
 
 lights = init_lights(left, top, right, bottom)
-print(lights)
+#print(lights)
 
 while True:
-   f = url.urlopen(ambilight_api)
+   f = urlopen(ambilight_api)
    data = f.read()
 
    json_data = json.loads(data)
